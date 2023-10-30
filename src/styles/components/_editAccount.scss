@@ -1,0 +1,46 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+@use "../components/editProfile";
+
+.edit-account {
+  @include flex-column-center;
+  h1 {
+    font-size: xx-large;
+  }
+  margin: 0 6rem;
+  .user-general-info {
+    display: flex;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+  .trainer-special {
+    width: 15%;
+    margin-left: 6rem;
+    .input {
+      label {
+        font-weight: bold;
+        font-size: small;
+      }
+      select {
+        margin-top: 0.8rem;
+        font-family: "Poppins";
+        border-radius: 6px;
+        width: 100%;
+        padding: 0.2rem 0;
+      }
+    }
+  }
+  .profile-btns {
+    @include flex-row-center;
+    justify-content: center;
+    width: 100%;
+
+    margin-bottom: 2rem;
+    button {
+      height: 2.4rem;
+    }
+    .secondary-btn {
+      margin-left: 2rem;
+    }
+  }
+}

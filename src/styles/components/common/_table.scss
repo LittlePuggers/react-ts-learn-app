@@ -1,0 +1,33 @@
+@use "../../abstracts/colors" as *;
+
+.table-container {
+  font-size: small;
+  padding: 0 0 2px;
+  border: solid $neutral-300 1px;
+  border-radius: 6px;
+  width: fit-content;
+  background-color: $neutral-100;
+  overflow: hidden;
+  table {
+    width: 25rem;
+    border-collapse: collapse;
+    tr {
+      border-bottom: solid $neutral-300 1px;
+      height: 3rem;
+      text-indent: 10px;
+      &:first-child {
+        background-color: $neutral-200;
+        text-align: left;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    td {
+      font-family: "Poppins";
+      &:first-child {
+        font-weight: bold;
+      }
+    }
+  }
+}

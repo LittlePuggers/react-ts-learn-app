@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Button } from "./common/Button";
-import { Logo } from "./common/Logo";
+import { Button } from "./Button";
+import { Logo } from "./Logo";
 import { ProfileMenu } from "./ProfileMenu";
 
 export function Header({ logged, user }) {

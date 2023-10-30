@@ -1,0 +1,40 @@
+@use "../abstracts/mixins";
+@use "../components/common/featHor" as *;
+
+.join {
+  @include mixins.flex-column-center;
+  padding: 0 4rem 2rem;
+  justify-content: space-between;
+
+  h1 {
+    font-size: xx-large;
+    margin-bottom: 2rem;
+  }
+  .feature-hor {
+    margin-bottom: 3rem;
+
+    .feature-hor-text {
+      width: 50%;
+      h2 {
+        font-family: "Montserrat";
+        font-size: xx-large;
+        margin: 0 0 0.2rem;
+      }
+      p {
+        font-size: small;
+        margin: 0 0 0.8rem;
+      }
+      .primary-btn {
+        font-size: small;
+        height: 2rem;
+      }
+    }
+    .feature-hor-img {
+      width: 50%;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

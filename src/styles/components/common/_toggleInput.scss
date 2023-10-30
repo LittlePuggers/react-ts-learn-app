@@ -1,0 +1,44 @@
+@use "../../abstracts/colors" as *;
+
+/* toggle in label designing */
+.toggle-input {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+.toggle-label {
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+}
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 4rem;
+  height: 2rem;
+  background-color: $neutral-400;
+  border-radius: 30px;
+  border: 2px solid gray;
+}
+/* After slide changes */
+.toggle:after {
+  content: "";
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: white;
+  left: 1px;
+  transition: all 0.5s;
+}
+/* Checkbox checked effect */
+.checkbox:checked + .toggle::after {
+  left: 1.9rem;
+}
+/* Checkbox checked toggle label bg color */
+.checkbox:checked + .toggle {
+  background-color: $primary-500;
+}
+/* Checkbox vanished */
+.checkbox {
+  display: none;
+}

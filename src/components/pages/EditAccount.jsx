@@ -1,5 +1,5 @@
-import { Button } from "./common/Button";
-import { Input } from "./common/Input";
+import { Button } from "../common/Button";
+import { Input } from "../common/Input";
 import { EditProfile } from "./EditProfile";
 
 export function EditAccount({ asStudent, user }) {

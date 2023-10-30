@@ -1,6 +1,6 @@
-import { Button } from "./common/Button";
-import { Input } from "./common/Input";
-import { ToggleInput } from "./common/ToggleInput";
+import { Button } from "../common/Button";
+import { Input } from "../common/Input";
+import { ToggleInput } from "../common/ToggleInput";
 
 export function EditProfile({ asStudent, user }) {
   return (

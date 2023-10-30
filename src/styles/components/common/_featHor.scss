@@ -1,0 +1,12 @@
+@use "../../abstracts/colors" as *;
+@use "../../abstracts/mixins";
+
+.feature-hor {
+  @include mixins.flex-row-center;
+  background-color: $neutral-100;
+  border-radius: 12px;
+  .feature-hor-text {
+    padding: 0 2.5rem;
+    box-sizing: border-box;
+  }
+}

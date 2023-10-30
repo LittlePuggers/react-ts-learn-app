@@ -1,15 +1,13 @@
-import { Button } from "./common/Button";
-import { Table } from "./common/Table";
-// import { UserProfile } from "./common/UserProfile";
-import { EditProfile } from "./EditProfile";
+import { Button } from "../common/Button";
+import { Table } from "../common/Table";
+import { UserProfile } from "./UserProfile";
 
 export function MyAccount({ asStudent, user }) {
   return (
     <section className="account">
       <h1>My Account</h1>
       <section className="user-general-info">
-        {/* <UserProfile asStudent={asStudent} user={user} /> */}
-        <EditProfile asStudent={asStudent} user={user} />
+        <UserProfile asStudent={asStudent} user={user} />
         <section className="user-list">
           <div className="user-list-header">
             <h2>{asStudent ? "My Trainers" : "My Students"}</h2>

@@ -1,0 +1,47 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins";
+
+.register {
+  @include mixins.flex-column;
+  margin: 2rem 6rem;
+  h1 {
+    font-size: xx-large;
+    margin-bottom: 0;
+  }
+  p {
+    font-size: x-small;
+    margin: 0.2rem 0 1.6rem;
+  }
+  .register-img-form {
+    display: flex;
+    justify-content: space-between;
+    img {
+      width: 35%;
+    }
+    form {
+      @include mixins.flex-column;
+      width: 55%;
+      .input {
+        @include mixins.register-input;
+        margin-bottom: 1.2rem;
+      }
+      select {
+        width: 100%;
+        border-radius: 6px;
+        border: solid $neutral-500 1px;
+        outline: none;
+        line-height: 2.2rem;
+        font-family: "Poppins";
+        text-indent: 1rem;
+        color: $neutral-500;
+        height: 2.2rem;
+      }
+      .primary-btn {
+        width: 100%;
+        font-size: small;
+        height: 2.4rem;
+        margin-top: auto;
+      }
+    }
+  }
+}
