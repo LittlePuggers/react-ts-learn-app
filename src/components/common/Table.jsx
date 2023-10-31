@@ -1,18 +1,28 @@
-export function Table({ asStudent, user }) {
-  const list = user.list;
+export function Table({ asStudent = true, list, onCheckboxChange }) {
+  const showCheckboxColumn = list.some((item) => item.selected === false);
 
   return (
     <div className="table-container">
       <table>
         <tr>
+          {showCheckboxColumn && <th></th>}
           <th>NAME</th>
           <th>{asStudent ? "SPECIALIZATION" : "STATUS"}</th>
         </tr>
-        {list.map((item) => {
+        {list.map((item, index) => {
           return (
-            <tr>
-              <td>{item.name}</td>
-              <td>{item.extra}</td>
+            <tr key={index}>
+              {showCheckboxColumn && (
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={item.selected}
+                    onChange={() => onCheckboxChange(index)}
+                  />
+                </td>
+              )}
+              <td className="bold">{item.name}</td>
+              <td>{item.status || item.specialization}</td>
             </tr>
           );
         })}

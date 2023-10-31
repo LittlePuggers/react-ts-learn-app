@@ -8,7 +8,7 @@ export function Input({
 }) {
   return (
     <div className="input">
-      <label for={name}>{labelText}</label>
+      <label htmlFor={name}>{labelText}</label>
       {inputType !== "select" ? (
         <input
           id={name}

@@ -3,6 +3,8 @@ import { Table } from "../common/Table";
 import { UserProfile } from "./UserProfile";
 
 export function MyAccount({ asStudent, user }) {
+  const list = user.list;
+
   return (
     <section className="account">
       <h1>My Account</h1>
@@ -19,7 +21,7 @@ export function MyAccount({ asStudent, user }) {
               />
             ) : null}
           </div>
-          <Table asStudent={asStudent} user={user}></Table>
+          <Table asStudent={asStudent} list={list}></Table>
         </section>
       </section>
       <section className="profile-btns">

@@ -11,10 +11,11 @@ import { MyAccount } from "./components/pages/MyAccount";
 import { EditAccount } from "./components/pages/EditAccount";
 import avatarStudent from "./assets/images/avatar-student.png";
 import avatarTrainer from "./assets/images/avatar-trainer.png";
+import { AddTrainer } from "./components/pages/AddTrainer";
 
 function App() {
   const loggedIn = false;
-  const asStudent = false;
+  const asStudent = true;
   const userProfile = loggedIn
     ? asStudent
       ? {
@@ -26,10 +27,10 @@ function App() {
           email: "marta_1234@gmail.com",
           picture: avatarStudent,
           list: [
-            { name: "Elizabeth Lopez", extra: "PHP" },
-            { name: "Matthew Martinez", extra: "JavaScript" },
-            { name: "Elizabeth Hall", extra: "Algorithms" },
-            { name: "Maria White", extra: "Java" },
+            { name: "Elizabeth Lopez", specialization: "PHP" },
+            { name: "Matthew Martinez", specialization: "JavaScript" },
+            { name: "Elizabeth Hall", specialization: "Algorithms" },
+            { name: "Maria White", specialization: "Java" },
           ],
         }
       : {
@@ -41,21 +42,33 @@ function App() {
           email: "john_12@gmail.com",
           picture: avatarTrainer,
           list: [
-            { name: "Elizabeth Lopez", extra: "ACTIVE" },
-            { name: "Matthew Martinez", extra: "ACTIVE" },
-            { name: "Elizabeth Hall", extra: "NOT ACTIVE" },
-            { name: "Maria White", extra: "NOT ACTIVE" },
-            { name: "Elizabeth Watson", extra: "NOT ACTIVE" },
-            { name: "Elizabeth Allen", extra: "NOT ACTIVE" },
-            { name: "Caleb Jones", extra: "NOT ACTIVE" },
+            { name: "Elizabeth Lopez", status: "ACTIVE" },
+            { name: "Matthew Martinez", status: "ACTIVE" },
+            { name: "Elizabeth Hall", status: "NOT ACTIVE" },
+            { name: "Maria White", status: "NOT ACTIVE" },
+            { name: "Elizabeth Watson", status: "NOT ACTIVE" },
+            { name: "Elizabeth Allen", status: "NOT ACTIVE" },
+            { name: "Caleb Jones", status: "NOT ACTIVE" },
           ],
         }
     : null;
+  const allTrainers = [
+    { name: "Elizabeth Lopez", specialization: "PHP" },
+    { name: "Matthew Martinez", specialization: "JavaScript" },
+    { name: "Elizabeth Hall", specialization: "Algorithms" },
+    { name: "Maria White", specialization: "Java" },
+    { name: "Elizabeth Watson", specialization: "Go Lang" },
+    { name: "Elizabeth Allen", specialization: "Rust" },
+    { name: "Caleb Jones", specialization: "Python" },
+    { name: "Javier Ortiz", specialization: "HTML" },
+    { name: "Brandon Taylor", specialization: "CSS" },
+  ];
 
   return (
     <div className="App">
       <Header logged={loggedIn} user={userProfile} />
       <div className="main-container">
+        {/* <AddTrainer allTrainers={allTrainers} student={userProfile} /> */}
         {/* {loggedIn ? (
           <EditAccount asStudent={asStudent} user={userProfile} />
         ) : (
@@ -67,9 +80,9 @@ function App() {
           <SignIn />
         )} */}
         {/* {loggedIn ? <RegisterValidation user={userProfile} /> : <SignIn />} */}
-        {/* {loggedIn ? <Register asStudent={asStudent} /> : <SignIn />} */}
+        {loggedIn ? <Register asStudent={asStudent} /> : <SignIn />}
         {/* {loggedIn ? <JoinUs /> : <SignIn />} */}
-        {loggedIn ? <HomePublic /> : <SignIn />}
+        {/* {loggedIn ? <HomePublic /> : <SignIn />} */}
       </div>
       <Footer />
     </div>

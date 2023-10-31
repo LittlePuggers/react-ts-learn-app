@@ -22,11 +22,11 @@
       &:last-child {
         border-bottom: none;
       }
-    }
-    td {
-      font-family: "Poppins";
-      &:first-child {
-        font-weight: bold;
+      td {
+        font-family: "Poppins";
+        &:first-child {
+          font-weight: bold;
+        }
       }
     }
   }

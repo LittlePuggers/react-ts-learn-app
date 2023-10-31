@@ -15,18 +15,21 @@ export function Register({ asStudent }) {
         <img src={img} alt={`Register as ${role}`}></img>
         <form>
           <Input
+            required
             name="first-name"
             labelText="First name"
             placeholder="Enter your first name"
             inputType="text"
           />
           <Input
+            required
             name="last-name"
             labelText="Last name"
             placeholder="Enter your last name"
             inputType="text"
           />
           <Input
+            required
             name="email"
             labelText="Email"
             placeholder="Enter your email"
@@ -49,6 +52,7 @@ export function Register({ asStudent }) {
             </>
           ) : (
             <Input
+              required
               name="specialization"
               labelText="Specialization"
               placeholder="Please select"
