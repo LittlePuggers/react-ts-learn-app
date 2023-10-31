@@ -1,5 +1,5 @@
 @use "../abstracts/mixins";
-@use "../components/common/featHor" as *;
+@use "../components/common/joinUsBox" as *;
 
 .join {
   @include mixins.flex-column-center;
@@ -10,10 +10,10 @@
     font-size: xx-large;
     margin-bottom: 2rem;
   }
-  .feature-hor {
+  .join-us-box {
     margin-bottom: 3rem;
 
-    .feature-hor-text {
+    .join-us-box-text {
       width: 50%;
       h2 {
         font-family: "Montserrat";
@@ -29,7 +29,7 @@
         height: 2rem;
       }
     }
-    .feature-hor-img {
+    .join-us-box-img {
       width: 50%;
       img {
         width: 100%;

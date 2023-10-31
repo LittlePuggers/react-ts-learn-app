@@ -14,7 +14,7 @@ import avatarTrainer from "./assets/images/avatar-trainer.png";
 import { AddTrainer } from "./components/pages/AddTrainer";
 
 function App() {
-  const loggedIn = false;
+  const loggedIn = true;
   const asStudent = true;
   const userProfile = loggedIn
     ? asStudent
@@ -80,8 +80,8 @@ function App() {
           <SignIn />
         )} */}
         {/* {loggedIn ? <RegisterValidation user={userProfile} /> : <SignIn />} */}
-        {loggedIn ? <Register asStudent={asStudent} /> : <SignIn />}
-        {/* {loggedIn ? <JoinUs /> : <SignIn />} */}
+        {/* {loggedIn ? <Register asStudent={asStudent} /> : <SignIn />} */}
+        {loggedIn ? <JoinUs /> : <SignIn />}
         {/* {loggedIn ? <HomePublic /> : <SignIn />} */}
       </div>
       <Footer />
