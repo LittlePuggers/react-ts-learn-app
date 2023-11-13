@@ -1,22 +1,16 @@
 import { useEffect, useState } from "react";
 import { Table } from "../../components/common/Table";
 import { Button } from "../../components/UI/Button";
-import { useNavigate } from "react-router-dom";
 import { Breadcrumbs } from "../../components/UI/Breadcrumbs";
-import { getTrainings } from "../../services/trainings.service";
+import { getTrainers } from "../../services/trainings.service";
 import { getUsersByRole } from "../../services/users.service";
+import { useUser } from "../../context/UserContext";
 
-export function AddTrainer({ student }) {
-  // allTrainers = [{name, specialization}, ...]
-
-  const navigate = useNavigate();
-  // const [innerTrainers, setInnerTrainers] = useState(
-  //   allTrainers.map((trainer) => {
-  //     return { ...trainer, selected: false };
-  //   })
-  // );
+export function AddTrainer() {
+  const { emailContext } = useUser();
 
   const [allTrainers, setAllTrainers] = useState([]);
+  const [myTrainers, setMyTrainers] = useState([]);
 
   useEffect(() => {
     const getAllTrainers = async () => {
@@ -31,9 +25,19 @@ export function AddTrainer({ student }) {
       setAllTrainers(allTrainers);
     };
     getAllTrainers();
-  }, []);
 
-  const myTrainers = student.list;
+    const getMyTrainers = async () => {
+      const myUserTrainers = await getTrainers(emailContext);
+      const trainerList = myUserTrainers.map((trainer) => {
+        return {
+          name: `${trainer.name} ${trainer.lastName}`,
+          specialization: trainer.specialization,
+        };
+      });
+      setMyTrainers(trainerList);
+    };
+    getMyTrainers();
+  }, []);
 
   const handleCheckboxChange = (index) => {
     const updatedTrainers = [...allTrainers];
@@ -47,16 +51,12 @@ export function AddTrainer({ student }) {
     <>
       <Breadcrumbs />
       <section className="add-trainer">
-        {/* <div className="directory">
-        <p onClick={() => navigate("/my-account")}>My Account</p>
-        <p> {">"} Add trainer</p> 
-      </div> */}
         <div className="add-trainer-title">
           <h1>Add trainer</h1>
           <p>
             Please select trainers for adding them into your trainers list{" "}
             <br />
-            *- There is not pos sibility to remove the trainer.
+            *- There is no possibility to remove the trainer.
           </p>
         </div>
         <div className="tables">

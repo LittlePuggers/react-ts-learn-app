@@ -1,12 +1,24 @@
+import { useEffect, useState } from "react";
 import { Breadcrumbs } from "../../components/UI/Breadcrumbs";
 import { Button } from "../../components/UI/Button";
 import { DatePicker } from "../../components/UI/DatePicker";
 import { Input } from "../../components/UI/Input";
+import { getUsersByRole } from "../../services/users.service";
 
-export function AddPassedTraining({ trainers }) {
-  const trainersNames = trainers.map((trainer) => {
-    return trainer.name;
-  });
+export function AddPassedTraining() {
+  const [trainers, setTrainers] = useState([]);
+
+  useEffect(() => {
+    const fetchTrainers = async () => {
+      const result = await getUsersByRole("trainer");
+      const trainerList = result.map((trainer) => {
+        return `${trainer.name} ${trainer.lastName}`;
+      });
+      setTrainers(trainerList);
+    };
+    fetchTrainers();
+  }, []);
+
   return (
     <>
       <Breadcrumbs />
@@ -58,7 +70,7 @@ export function AddPassedTraining({ trainers }) {
                 labelText="Add trainer"
                 placeholder="Please select one"
                 inputType="select"
-                selectArray={trainersNames}
+                selectArray={trainers}
               />
             </div>
           </form>

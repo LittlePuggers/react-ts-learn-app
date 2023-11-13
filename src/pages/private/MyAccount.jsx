@@ -11,7 +11,7 @@ import { deleteUser } from "../../services/users.service";
 import { logout, removeToken } from "../../services/auth.service";
 
 export function MyAccount() {
-  const { isLoggedIn, setLoggedIn } = useAuth();
+  const { setLoggedIn } = useAuth();
   const { user, emailContext } = useUser();
   const asStudent = user.role === "student" ? true : false;
   const navigate = useNavigate();
@@ -19,7 +19,6 @@ export function MyAccount() {
   const [trainers, setTrainers] = useState([]);
 
   useEffect(() => {
-    console.log(isLoggedIn);
     const fetchTrainers = async () => {
       const result = await getTrainers(emailContext);
       const trainerList = result.map((trainer) => {

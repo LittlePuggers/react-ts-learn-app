@@ -22,14 +22,7 @@ import { Pricing } from "../pages/public/Pricing";
 import { Register } from "../pages/public/Register";
 import { useAuth } from "../context/AuthContext";
 
-export function Router({
-  userProfile,
-  // setAsStudent,
-  asStudent,
-  // setLoggedIn,
-  allTrainers,
-  // setAuth,
-}) {
+export function Router() {
   const { isLoggedIn } = useAuth();
   const [registerStudent, setRegisterStudent] = useState(false);
 
@@ -40,7 +33,7 @@ export function Router({
         element={
           isLoggedIn ? (
             <PrivateRoute>
-              <Home user={userProfile} />
+              <Home />
             </PrivateRoute>
           ) : (
             <HomePublic />
@@ -65,32 +58,21 @@ export function Router({
       ></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route element={<PrivateWrapper />}>
-        <Route
-          path="/my-account"
-          element={<MyAccount userProp={userProfile} />}
-        />
-        <Route
-          path="/my-account/add-trainer"
-          element={<AddTrainer student={userProfile} />}
-        />
+        <Route path="/my-account" element={<MyAccount />} />
+        <Route path="/my-account/add-trainer" element={<AddTrainer />} />
         <Route path="/my-account/edit" element={<EditAccount />} />
         <Route
           path="/my-account/change-password"
-          element={<ChangePassword user={userProfile} />}
+          element={<ChangePassword />}
         />
         <Route
           path="/my-account/change-password-ok"
           element={<ChangePasswordOk />}
         />
-        <Route
-          path="/my-account/trainings"
-          element={<Trainings user={userProfile} />}
-        />
+        <Route path="/my-account/trainings" element={<Trainings />} />
         <Route
           path="/my-account/trainings/add-training"
-          element={
-            <AddPassedTraining user={userProfile} trainers={allTrainers} />
-          }
+          element={<AddPassedTraining />}
         />
       </Route>
       <Route path="/blog" element={<Blog />} />

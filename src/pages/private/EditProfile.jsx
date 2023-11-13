@@ -53,7 +53,7 @@ export function EditProfile({ editProfile, setEditProfile, isStudent }) {
           <>
             <Input
               name="birthdate"
-              labelText="Date fo birth"
+              labelText="Date of birth"
               value={editProfile.dateBirth}
               inputType="text"
               onChange={(e) => handleChange(e, "dateBirth")}
