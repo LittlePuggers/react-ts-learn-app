@@ -1,0 +1,65 @@
+@use "../../abstracts/mixins" as *;
+@use "../../abstracts/colors" as *;
+
+.add-passed-training {
+  margin: 2rem 6rem;
+  > h1 {
+    font-size: xx-large;
+    text-align: center;
+  }
+  .training {
+    // display: flex;
+    h3 {
+    }
+    > form {
+      width: 70%;
+      display: flex;
+
+      .training-info {
+        width: 45%;
+
+        > div:nth-child(2) > div {
+          width: 100%;
+          margin-bottom: 0.6rem;
+          > p {
+            font-weight: bold;
+          }
+        }
+        > label {
+          font-weight: bold;
+          font-family: "Poppins";
+          font-size: small;
+        }
+        > textarea {
+          width: 100%;
+          padding: 0.4rem;
+          background-color: $neutral-200;
+          font-family: "Poppins";
+          outline: none;
+          border: none;
+          height: 6rem;
+          margin-bottom: 2rem;
+        }
+        .form-btns {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+      .add-trainer {
+        width: 45%;
+        .input {
+        }
+      }
+      .input {
+        @include register-input;
+        margin-bottom: 0.6rem;
+
+        select {
+          @include register-input;
+          font-family: "Poppins";
+          height: 2.5rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+@use "../../abstracts/mixins" as *;
+
+.trainings {
+  //   @include flex-column;
+  margin: 2rem 6rem;
+  h1 {
+    font-size: xx-large;
+    text-align: center;
+  }
+  > button {
+    font-size: small;
+    margin-bottom: 3rem;
+  }
+  form {
+    h2 {
+    }
+    .search-form {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      .search-inputs {
+        display: flex;
+        width: 50%;
+        justify-content: space-between;
+        .input {
+          @include login-input;
+          input {
+            width: 90%;
+            margin-right: auto;
+            text-indent: 0.2rem;
+          }
+        }
+      }
+      .search-dates {
+        display: flex;
+        justify-content: space-between;
+        > div {
+          padding-top: 0;
+        }
+        > div > div {
+          width: 95%;
+        }
+        > div > div > p {
+          font-weight: bold;
+        }
+        > div > div > div > div > input {
+          //   padding: 0.2rem 0.4rem;
+          height: 0.5rem;
+        }
+      }
+    }
+    button {
+      font-size: small;
+    }
+    margin-bottom: 16rem;
+  }
+  .passed-trainings {
+    // display: flex;
+    h2 {
+    }
+    .basic-table {
+      //   width: 80%;
+      //   margin: auto;
+    }
+  }
+}

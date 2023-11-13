@@ -1,0 +1,106 @@
+@use "../../abstracts/colors" as *;
+@use "../../abstracts/mixins";
+@use "../UI/button";
+
+footer {
+  width: 100%;
+  padding: 5% 10% 0;
+  box-sizing: border-box; // TODO: INVESTIGA ESTO
+  background-color: $neutral-100;
+  bottom: 0;
+  font-size: x-small;
+}
+
+.footer-up {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 4%;
+
+  .logo {
+    margin-right: 3rem;
+  }
+}
+.footer-list {
+  width: 15%;
+  @include mixins.flex-column;
+
+  h3 {
+    text-align: left;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  p {
+    text-align: left;
+    margin-bottom: 0.4rem;
+  }
+}
+.footer-subscribe {
+  @include mixins.flex-column;
+
+  h3 {
+    color: $primary-500;
+    text-align: left;
+    margin-bottom: 0.2rem;
+    font-weight: bold;
+  }
+  p {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+  }
+  .input-btn {
+    display: flex;
+
+    input {
+      border-radius: 6px 0px 0px 6px;
+      border-width: 1px;
+      border-color: $neutral-500;
+      outline: none;
+      background-image: url("../../../assets/icons/envelope-regular.svg");
+      background-size: 16px;
+      background-position: 10px center;
+      background-repeat: no-repeat;
+      font-family: "Poppins";
+      text-align: left;
+      text-indent: 30px;
+      flex: 1;
+      font-size: x-small;
+    }
+    button {
+      border-radius: 0px 6px 6px 0px;
+      font-size: x-small;
+      min-height: 1.8rem;
+    }
+  }
+}
+
+.footer-down {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  font-size: x-small;
+
+  .footer-language {
+    width: 8%;
+    select {
+      font-family: "Poppins";
+      font-size: xx-small;
+      background: #eaecefff; /* neutral-250 */
+      border-radius: 6px; /* border-m */
+      border-width: 0px;
+      outline: none;
+      width: 100%;
+      padding: 0.2rem 0;
+    }
+  }
+  .footer-social {
+    width: 8%;
+    display: flex;
+    justify-content: space-between;
+    svg {
+      width: 0.8rem;
+      fill: $primary-500;
+    }
+  }
+}

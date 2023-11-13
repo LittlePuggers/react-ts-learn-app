@@ -1,0 +1,33 @@
+@use "../../abstracts/colors" as *;
+@use "../../abstracts/mixins" as *;
+@use "../../components/common/pricingBox";
+
+.pricing-faq {
+  margin: 2rem 6rem;
+  .pricing {
+    @include flex-column-center;
+    > h1 {
+      font-size: xx-large;
+    }
+    > p {
+      text-align: center;
+    }
+    .pricing-item-container {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      margin: 2rem 0 4rem;
+    }
+  }
+  .faq {
+    @include flex-column-center;
+    > h1 {
+      font-size: x-large;
+      margin: 0;
+    }
+    > p {
+      font-size: x-small;
+      margin-bottom: 2rem;
+    }
+  }
+}

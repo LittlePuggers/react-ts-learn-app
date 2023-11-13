@@ -1,0 +1,53 @@
+@use "../../components/common/box";
+
+.home {
+  padding: 2rem 6rem;
+  .greeting {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    h1 {
+      font-size: xx-large;
+    }
+    p {
+      font-size: small;
+      width: 50%;
+      margin: auto;
+    }
+  }
+  .blog {
+    width: 100%;
+    h2 {
+      text-align: center;
+    }
+    > p {
+      font-size: small;
+      text-align: center;
+      width: 50%;
+      margin: auto;
+      margin-bottom: 2rem;
+    }
+    .articles {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      .box {
+        min-width: 20rem;
+        overflow: hidden;
+        img {
+          width: 100%;
+        }
+        // flex: 1;
+        // flex-grow: 0;
+        // flex-shrink: 1;
+      }
+    }
+    button {
+      font-size: small;
+      height: 2rem;
+      margin: auto;
+      margin-bottom: 4rem;
+    }
+  }
+}

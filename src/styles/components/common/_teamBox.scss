@@ -1,0 +1,28 @@
+@use "../../abstracts/colors" as *;
+@use "../../abstracts/mixins" as *;
+
+.team-box {
+  @include flex-column-center;
+  border-radius: 8px;
+  background-color: $neutral-100;
+  padding: 1rem 3rem;
+  width: min-content;
+  img {
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-size: x-large;
+    margin: 0;
+  }
+  h4 {
+    font-family: "Poppins";
+    font-weight: 400;
+    color: $primary-500;
+    margin: 0.5rem 0;
+  }
+  > p {
+    margin: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+}

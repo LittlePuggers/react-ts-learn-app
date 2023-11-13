@@ -81,3 +81,13 @@
   font-weight: bold;
   margin-bottom: 0;
 }
+
+.input-error {
+  input,
+  select {
+    border-color: red !important;
+  }
+  label {
+    color: red;
+  }
+}

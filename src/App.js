@@ -1,21 +1,23 @@
-// THIS IS THE MAIN COMPONENT IN THE APP
 import "./styles/index.scss";
-import { Footer } from "./components/common/Footer";
-import { Header } from "./components/common/Header";
-import { HomePublic } from "./components/pages/HomePublic";
-import { SignIn } from "./components/pages/SignIn";
-import { JoinUs } from "./components/pages/JoinUs";
-import { Register } from "./components/pages/Register";
-import { RegisterValidation } from "./components/pages/RegisterValidation";
-import { MyAccount } from "./components/pages/MyAccount";
-import { EditAccount } from "./components/pages/EditAccount";
+
+import { Footer } from "./components/layout/Footer";
+import { Header } from "./components/layout/Header";
+
 import avatarStudent from "./assets/images/avatar-student.png";
 import avatarTrainer from "./assets/images/avatar-trainer.png";
-import { AddTrainer } from "./components/pages/AddTrainer";
+
+import { useState } from "react";
+
+import { Router } from "./routes/Router";
+
+import { AuthProvider } from "./context/AuthContext";
+import { UserProvider } from "./context/UserContext";
 
 function App() {
-  const loggedIn = true;
-  const asStudent = true;
+  const [auth, setAuth] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
+  const [asStudent, setAsStudent] = useState(true);
+
   const userProfile = loggedIn
     ? asStudent
       ? {
@@ -31,6 +33,29 @@ function App() {
             { name: "Matthew Martinez", specialization: "JavaScript" },
             { name: "Elizabeth Hall", specialization: "Algorithms" },
             { name: "Maria White", specialization: "Java" },
+          ],
+          trainings: [
+            {
+              date: "12.03.2023",
+              training: "JavaScript Course 1",
+              type: "Webinar",
+              trainer: "Matthew Martinez",
+              duration: "15 d",
+            },
+            {
+              date: "12.03.2023",
+              training: "JavaScript Course 2  ",
+              type: "Webinar",
+              trainer: "Matthew Martinez",
+              duration: "10 d",
+            },
+            {
+              date: "12.03.2023",
+              training: "Java",
+              type: "Webinar",
+              trainer: "Maria White",
+              duration: "2 d",
+            },
           ],
         }
       : {
@@ -66,25 +91,22 @@ function App() {
 
   return (
     <div className="App">
-      <Header logged={loggedIn} user={userProfile} />
-      <div className="main-container">
-        {/* <AddTrainer allTrainers={allTrainers} student={userProfile} /> */}
-        {/* {loggedIn ? (
-          <EditAccount asStudent={asStudent} user={userProfile} />
-        ) : (
-          <SignIn />
-        )} */}
-        {/* {loggedIn ? (
-          <MyAccount asStudent={asStudent} user={userProfile} />
-        ) : (
-          <SignIn />
-        )} */}
-        {/* {loggedIn ? <RegisterValidation user={userProfile} /> : <SignIn />} */}
-        {/* {loggedIn ? <Register asStudent={asStudent} /> : <SignIn />} */}
-        {loggedIn ? <JoinUs /> : <SignIn />}
-        {/* {loggedIn ? <HomePublic /> : <SignIn />} */}
-      </div>
-      <Footer />
+      <AuthProvider>
+        <UserProvider>
+          <Header user={userProfile} setLoggedIn={setLoggedIn} />
+          <main className="main-container">
+            <Router
+              userProfile={userProfile}
+              setAsStudent={setAsStudent}
+              asStudent={asStudent}
+              // setLoggedIn={setLoggedIn}
+              allTrainers={allTrainers}
+              // setAuth={setAuth}
+            />
+          </main>
+          <Footer />
+        </UserProvider>
+      </AuthProvider>
     </div>
   );
 }

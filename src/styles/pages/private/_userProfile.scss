@@ -1,0 +1,28 @@
+@use "../../abstracts/colors" as *;
+@use "../../abstracts/mixins" as *;
+
+.user-profile {
+  @include flex-column;
+  width: 50%;
+  .avatar-status {
+    display: flex;
+    margin-bottom: 2rem;
+    p {
+      margin-left: 1.2rem;
+      font-size: small;
+      font-weight: bold;
+      &:last-child {
+        color: $tertiary-500;
+      }
+    }
+  }
+  p {
+    margin: 0 0 0.2rem;
+    &:nth-child(even) {
+      margin-bottom: 0.5rem;
+    }
+    &:nth-child(odd) {
+      @include user-label;
+    }
+  }
+}

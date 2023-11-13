@@ -1,0 +1,54 @@
+@use "../../abstracts/colors" as *;
+@use "../UI/profileMenu";
+
+.header {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  border-bottom: solid $neutral-300 1px;
+
+  .logo {
+    margin-left: 0.5rem;
+    margin-right: 5rem;
+  }
+}
+.logo {
+  width: 131px;
+  .logo-blend {
+    mix-blend-mode: multiply;
+    width: 6rem;
+  }
+}
+.header-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 15rem;
+  max-width: 15rem;
+  font-family: "Poppins";
+  > * {
+    text-decoration: none;
+    color: black;
+    line-height: 3rem;
+  }
+}
+.header-auth {
+  display: flex;
+  margin-left: auto;
+  justify-content: space-between;
+  min-width: 10rem;
+  max-width: 12rem;
+  min-height: 2rem;
+  max-height: 2rem;
+  align-items: center;
+  > a {
+    font-family: "Poppins";
+    text-decoration: none;
+    color: black;
+  }
+  .header-pic {
+    border-radius: 50%;
+    height: 42px;
+    margin-right: 2rem;
+  }
+}

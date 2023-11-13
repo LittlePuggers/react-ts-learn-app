@@ -1,0 +1,72 @@
+@use "../../abstracts/colors" as *;
+@use "../../abstracts/mixins" as *;
+
+.pricing-box {
+  background-color: $neutral-150;
+  border-radius: 6px;
+  box-shadow: 0px 0px 1px #171a1f, 0px 0px 2px #171a1f;
+  padding: 1rem;
+  transition: transform 0.3s;
+  flex: 1;
+  > h1 {
+    font-size: x-large;
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    > span {
+      font-size: xx-small;
+      background-color: $secondary-500;
+      color: white;
+      border-radius: 14px;
+      padding: 0.2rem;
+      font-family: "Poppins";
+      font-weight: 400;
+    }
+  }
+  > p {
+    font-size: small;
+    margin: 0;
+  }
+  > h2 {
+    font-size: x-large;
+    margin: 1rem 0;
+    > sup {
+      font-weight: 400;
+      font-size: small;
+    }
+  }
+  > ul {
+    padding-left: 0;
+    > li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      font-size: small;
+      margin: 0.5rem 0;
+      .pricing-includes-icon {
+        height: 1rem;
+        width: 1rem;
+        margin-right: 0.2rem;
+      }
+    }
+  }
+  > button {
+    border: solid 1px $primary-500;
+    color: $primary-500;
+    font-size: small;
+    width: 100%;
+  }
+}
+
+.pricing-box:hover {
+  background-color: white;
+  transform: scale(1.1);
+  > h1 {
+    color: $primary-500;
+  }
+  > button {
+    color: white;
+    background-color: $primary-500;
+  }
+}

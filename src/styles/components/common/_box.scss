@@ -1,0 +1,49 @@
+@use "../../abstracts/colors" as *;
+@use "../../abstracts/mixins" as *;
+
+.box {
+  border-radius: 8px;
+  box-shadow: 0px 0px 1px #171a1f, 0px 0px 2px #171a1f;
+  width: min-content;
+  display: flex;
+  flex-direction: column;
+  img {
+    margin-bottom: 1rem;
+  }
+  > p {
+    color: $primary-500;
+    font-size: small;
+    margin: 0;
+    padding: 0 1rem;
+    margin-bottom: 0.2rem;
+  }
+  h3 {
+    font-size: x-large;
+    margin: 0;
+    padding: 0 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .time-row {
+    @include flex-row-center;
+    margin: 0;
+    padding: 0 1rem;
+    margin-bottom: 0.2rem;
+    justify-content: space-between;
+    margin-top: auto;
+    p {
+      margin: 0;
+      font-size: small;
+      margin-bottom: 1rem;
+      &:first-child {
+        color: $neutral-500;
+        margin-left: 0;
+      }
+      &:last-child {
+        color: $neutral-700;
+        background-color: $neutral-200;
+        border-radius: 14px;
+        padding: 0.2rem 0.4rem;
+      }
+    }
+  }
+}
